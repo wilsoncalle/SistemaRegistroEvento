@@ -1,0 +1,45 @@
+<nav id="sidebar" class="col-md-3 col-lg-2 d-md-block bg-dark sidebar collapse">
+    <div class="position-sticky pt-3">
+        <div class="text-center mb-4">
+            <i class="bi bi-calendar-event text-white fs-1"></i>
+            <h6 class="sidebar-heading text-white mt-2">Gestión de Eventos</h6>
+        </div>
+        <hr class="text-white-50">
+        <ul class="nav flex-column">
+            <li class="nav-item">
+                <a class="nav-link <?php echo basename($_SERVER['PHP_SELF']) == 'index.php' ? 'active' : ''; ?>" href="../dashboard/index.php">
+                    <i class="bi bi-speedometer2"></i>
+                    Dashboard
+                </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link <?php echo strpos($_SERVER['PHP_SELF'], '/eventos/') ? 'active' : ''; ?>" href="../eventos/index.php">
+                    <i class="bi bi-calendar-event"></i>
+                    Eventos
+                </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link <?php echo strpos($_SERVER['PHP_SELF'], '/ponentes/') ? 'active' : ''; ?>" href="../ponentes/index.php">
+                    <i class="bi bi-person-badge"></i>
+                    Ponentes
+                </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link <?php echo strpos($_SERVER['PHP_SELF'], '/participantes/') ? 'active' : ''; ?>" href="../participantes/index.php">
+                    <i class="bi bi-people"></i>
+                    Participantes
+                </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link <?php echo strpos($_SERVER['PHP_SELF'], '/inscripciones/') ? 'active' : ''; ?>" href="../inscripciones/index.php">
+                    <i class="bi bi-clipboard-check"></i>
+                    Registros
+                </a>
+            </li>
+        </ul>
+
+        <hr class="text-white-50">
+        
+    
+    </div>
+</nav>

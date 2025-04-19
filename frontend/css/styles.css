@@ -1,0 +1,213 @@
+/* Paleta de Colores */
+:root {
+    --color-primario: #0056b3;
+    --color-secundario: #6c757d;
+    --color-exito: #28a745;
+    --color-peligro: #dc3545;
+    --color-fondo: #f8f9fa;
+    --color-texto: #212529;
+    --transition-speed: 0.3s;
+}
+
+/* Animaciones Base */
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+@keyframes slideIn {
+    from { transform: translateY(20px); opacity: 0; }
+    to { transform: translateY(0); opacity: 1; }
+}
+
+@keyframes pulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.05); }
+    100% { transform: scale(1); }
+}
+
+/* Tipografía */
+body.sistema-eventos {
+    font-family: 'Roboto', sans-serif !important;
+    background-color: var(--color-fondo) !important;
+    color: var(--color-texto) !important;
+    animation: fadeIn 0.5s ease-out;
+}
+
+/* Encabezados */
+.sistema-eventos h1,
+.sistema-eventos h2,
+.sistema-eventos h3,
+.sistema-eventos h4,
+.sistema-eventos h5,
+.sistema-eventos h6 {
+    font-weight: 600 !important;
+    animation: slideIn 0.5s ease-out;
+}
+
+/* Botones */
+.sistema-eventos .btn-primary {
+    background-color: var(--color-primario) !important;
+    border-color: var(--color-primario) !important;
+    border-radius: 6px !important;
+    padding: 0.5rem 1rem !important;
+    transition: all var(--transition-speed) ease !important;
+    position: relative !important;
+    overflow: hidden !important;
+}
+
+.sistema-eventos .btn-primary:hover {
+    background-color: #004494 !important;
+    border-color: #004494 !important;
+    transform: translateY(-2px) !important;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1) !important;
+}
+
+.sistema-eventos .btn-primary:active {
+    transform: translateY(0) !important;
+}
+
+.sistema-eventos .btn-outline-secondary {
+    border-radius: 6px !important;
+}
+
+/* Cards */
+.sistema-eventos .card {
+    border: none !important;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05) !important;
+    border-radius: 8px !important;
+    transition: all var(--transition-speed) ease !important;
+    animation: slideIn 0.5s ease-out;
+}
+
+.sistema-eventos .card:hover {
+    transform: translateY(-5px) !important;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1) !important;
+}
+
+.sistema-eventos .card-header {
+    background-color: #fff !important;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.05) !important;
+}
+
+.sistema-eventos .stat-card {
+    background-color: #fff !important;
+    padding: 1.5rem !important;
+    text-align: center !important;
+}
+
+.sistema-eventos .stat-value {
+    font-size: 2.5rem !important;
+    font-weight: bold !important;
+    color: var(--color-primario) !important;
+}
+
+/* Formularios */
+.sistema-eventos .form-control {
+    border-radius: 6px !important;
+    border: 1px solid #ced4da !important;
+    transition: all var(--transition-speed) ease !important;
+}
+
+.sistema-eventos .form-control:focus {
+    box-shadow: 0 0 0 0.2rem rgba(0, 86, 179, 0.25) !important;
+    transform: scale(1.02) !important;
+}
+
+.sistema-eventos .form-label {
+    font-weight: 500 !important;
+    color: var(--color-texto) !important;
+}
+
+/* Tablas */
+.sistema-eventos .table {
+    background-color: #fff !important;
+    border-radius: 8px !important;
+    overflow: hidden !important;
+    animation: fadeIn 0.5s ease-out;
+}
+
+.sistema-eventos .table thead th {
+    background-color: var(--color-primario) !important;
+    color: #fff !important;
+    border-color: var(--color-primario) !important;
+}
+
+.sistema-eventos .table-hover tbody tr {
+    transition: all var(--transition-speed) ease !important;
+}
+
+.sistema-eventos .table-hover tbody tr:hover {
+    background-color: rgba(0, 86, 179, 0.05) !important;
+    transform: scale(1.01) !important;
+}
+
+/* Barra Lateral */
+.sistema-eventos .sidebar {
+    background-color: #343a40 !important;
+    color: #fff !important;
+    min-height: 100vh !important;
+    animation: slideIn 0.5s ease-out;
+}
+
+.sistema-eventos .sidebar .nav-link {
+    color: #adb5bd !important;
+    padding: 0.75rem 1rem !important;
+    border-radius: 6px !important;
+    margin: 0.25rem 0.5rem !important;
+    transition: all var(--transition-speed) ease !important;
+}
+
+.sistema-eventos .sidebar .nav-link:hover {
+    color: #fff !important;
+    background-color: rgba(255, 255, 255, 0.1) !important;
+    transform: translateX(5px) !important;
+}
+
+.sistema-eventos .sidebar .nav-link.active {
+    color: #fff !important;
+    background-color: rgba(255, 255, 255, 0.2) !important;
+}
+
+/* Badges */
+.sistema-eventos .badge {
+    font-size: 0.875rem !important;
+    padding: 0.5em 0.75em !important;
+    border-radius: 4px !important;
+    transition: all var(--transition-speed) ease !important;
+}
+
+.sistema-eventos .badge:hover {
+    animation: pulse 1s infinite !important;
+}
+
+/* Imágenes de Perfil */
+.sistema-eventos .img-fluid.rounded-circle {
+    border: 2px solid var(--color-primario) !important;
+    max-width: 150px !important;
+    transition: all var(--transition-speed) ease !important;
+}
+
+.sistema-eventos .img-fluid.rounded-circle:hover {
+    transform: scale(1.05) !important;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1) !important;
+}
+
+/* Efectos de Carga */
+.sistema-eventos .loading {
+    animation: pulse 1.5s infinite !important;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+    .sistema-eventos .stat-value {
+        font-size: 2rem !important;
+    }
+    .sistema-eventos .sidebar {
+        position: fixed !important;
+        z-index: 1000 !important;
+    }
+    .sistema-eventos .card:hover {
+        transform: none !important;
+    }
+}

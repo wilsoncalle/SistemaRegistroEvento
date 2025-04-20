@@ -60,7 +60,7 @@ $total_paginas = ceil($total_registros / $por_pagina);
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
     <link rel="stylesheet" href="../../css/styles.css">
 </head>
-<body class="sistema-eventos">
+<body>
 
 <div class="container-fluid">
     <div class="row">

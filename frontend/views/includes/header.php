@@ -14,6 +14,7 @@ require_once $base_path . '/config/database.php';
     <title><?php echo APP_NAME; ?></title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="<?php echo APP_URL; ?>/frontend/css/styles.css">
     <style>
         .profile-image {
             max-width: 200px;
@@ -23,7 +24,7 @@ require_once $base_path . '/config/database.php';
     </style>
 </head>
 <body>
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <nav class="navbar navbar-expand-lg">
         <div class="container">
             <a class="navbar-brand" href="<?php echo APP_URL; ?>"><?php echo APP_NAME; ?></a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
@@ -44,4 +45,7 @@ require_once $base_path . '/config/database.php';
             </div>
         </div>
     </nav>
-    <div class="container mt-4"> 
+    <div class="container-fluid p-0">
+        <div class="row">
+            <?php include 'layouts/sidebar.php'; ?>
+            <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4"> 

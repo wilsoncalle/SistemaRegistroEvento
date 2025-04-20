@@ -1,13 +1,13 @@
-<nav id="sidebar" class="col-md-3 col-lg-2 d-md-block bg-dark sidebar collapse">
+<nav id="sidebar" class="col-md-3 col-lg-2 d-md-block sidebar collapse">
     <div class="position-sticky pt-3">
         <div class="text-center mb-4">
-            <i class="bi bi-calendar-event text-white fs-1"></i>
-            <h6 class="sidebar-heading text-white mt-2">Gestión de Eventos</h6>
+            <i class="bi bi-calendar-event fs-1"></i>
+            <h6 class="sidebar-heading mt-2">Gestión de Eventos</h6>
         </div>
-        <hr class="text-white-50">
+        <hr>
         <ul class="nav flex-column">
             <li class="nav-item">
-                <a class="nav-link <?php echo basename($_SERVER['PHP_SELF']) == 'index.php' ? 'active' : ''; ?>" href="../dashboard/index.php">
+                <a class="nav-link <?php echo strpos($_SERVER['PHP_SELF'], '/dashboard/') ? 'active' : ''; ?>" href="../dashboard/index.php">
                     <i class="bi bi-speedometer2"></i>
                     Dashboard
                 </a>
@@ -38,7 +38,7 @@
             </li>
         </ul>
 
-        <hr class="text-white-50">
+        <hr>
         
     
     </div>

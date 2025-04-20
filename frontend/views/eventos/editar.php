@@ -78,7 +78,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                   WHERE evento_id = ?";
         
         $stmt = mysqli_prepare($conn, $query);
-        mysqli_stmt_bind_param($stmt, 'ssssssissi', 
+        mysqli_stmt_bind_param($stmt, 'ssssssisii', 
             $titulo, $descripcion, $fecha_evento, $hora_inicio, 
             $hora_fin, $ubicacion, $max_participantes, $categoria_id, $imagen, $evento_id
         );
@@ -130,116 +130,18 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
     <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
     <link rel="stylesheet" href="../../css/styles.css">
-    <style>
-        .card {
-            border: none;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-        }
-
-        .card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
-        }
-
-        .form-control, .form-select {
-            border-radius: 8px;
-            transition: all 0.3s ease;
-            border: 1px solid #ced4da;
-        }
-
-        .form-control:focus, .form-select:focus {
-            border-color: #80bdff;
-            box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25);
-            transform: scale(1.02);
-        }
-
-        .btn {
-            border-radius: 8px;
-            transition: all 0.3s ease;
-            padding: 0.5rem 1.5rem;
-        }
-
-        .btn-primary {
-            background: linear-gradient(45deg, #007bff, #0056b3);
-            border: none;
-        }
-
-        .btn-primary:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 4px 8px rgba(0, 123, 255, 0.3);
-        }
-
-        .btn-outline-secondary {
-            border: 2px solid #6c757d;
-        }
-
-        .btn-outline-secondary:hover {
-            background-color: #6c757d;
-            color: white;
-            transform: translateY(-2px);
-        }
-
-        .animate-fade-in {
-            animation: fadeIn 0.5s ease-in;
-        }
-
-        .animate-slide-up {
-            animation: slideUp 0.5s ease-out;
-        }
-
-        @keyframes fadeIn {
-            from { opacity: 0; }
-            to { opacity: 1; }
-        }
-
-        @keyframes slideUp {
-            from { transform: translateY(20px); opacity: 0; }
-            to { transform: translateY(0); opacity: 1; }
-        }
-
-        .form-label {
-            font-weight: 500;
-            color: #495057;
-            transition: color 0.3s ease;
-        }
-
-        .form-label:hover {
-            color: #007bff;
-        }
-
-        .invalid-feedback {
-            animation: shake 0.5s ease-in-out;
-        }
-
-        @keyframes shake {
-            0%, 100% { transform: translateX(0); }
-            25% { transform: translateX(-5px); }
-            75% { transform: translateX(5px); }
-        }
-
-        .select2-container--default .select2-selection--multiple {
-            border-radius: 8px;
-            transition: all 0.3s ease;
-        }
-
-        .select2-container--default .select2-selection--multiple:hover {
-            border-color: #80bdff;
-        }
-    </style>
 </head>
 <body>
 
-<div class="container-fluid animate-fade-in">
+<div class="container-fluid">
     <div class="row">
         <!-- Sidebar -->
         <?php include '../layouts/sidebar.php'; ?>
 
         <!-- Main content -->
         <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4">
-            <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom animate-slide-up">
+            <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
                 <h1 class="h2">Editar Evento</h1>
                 <div class="btn-toolbar mb-2 mb-md-0">
                     <a href="index.php" class="btn btn-outline-secondary">
@@ -249,12 +151,12 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             </div>
 
             <?php if (isset($error)): ?>
-                <div class="alert alert-danger animate-slide-up">
+                <div class="alert alert-danger">
                     <?php echo $error; ?>
                 </div>
             <?php endif; ?>
 
-            <div class="card animate-slide-up">
+            <div class="card">
                 <div class="card-body">
                     <form action="" method="POST" class="needs-validation" novalidate>
                         <div class="row">
@@ -274,28 +176,27 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                                 </div>
 
                                 <div class="row">
-                                    <div class="col-md-4 mb-3">
+                                    <div class="col-md-6 mb-3">
                                         <label for="fecha_evento" class="form-label">Fecha *</label>
                                         <input type="date" class="form-control" id="fecha_evento" name="fecha_evento" 
                                                value="<?php echo isset($evento['fecha_evento']) ? htmlspecialchars($evento['fecha_evento']) : ''; ?>" required>
                                         <div class="invalid-feedback">Por favor selecciona la fecha del evento.</div>
                                     </div>
 
-                                    <div class="col-md-4 mb-3">
+                                    <div class="col-md-6 mb-3">
                                         <label for="hora_inicio" class="form-label">Hora de Inicio *</label>
                                         <input type="time" class="form-control" id="hora_inicio" name="hora_inicio" 
                                                value="<?php echo isset($evento['hora_inicio']) ? htmlspecialchars($evento['hora_inicio']) : ''; ?>" required>
                                         <div class="invalid-feedback">Por favor selecciona la hora de inicio del evento.</div>
                                     </div>
-                                    <div class="col-md-4 mb-3">
-                                        <label for="hora_fin" class="form-label">Hora de Fin *</label>
-                                        <input type="time" class="form-control" id="hora_fin" name="hora_fin" 
-                                            value="<?php echo isset($evento['hora_fin']) ? htmlspecialchars($evento['hora_fin']) : ''; ?>" required>
-                                    <div class="invalid-feedback">Por favor selecciona la hora de fin del evento.</div>
-                                </div>
                                 </div>
 
-                                
+                                <div class="col-md-6 mb-3">
+                                    <label for="hora_fin" class="form-label">Hora de Fin *</label>
+                                    <input type="time" class="form-control" id="hora_fin" name="hora_fin" 
+                                           value="<?php echo isset($evento['hora_fin']) ? htmlspecialchars($evento['hora_fin']) : ''; ?>" required>
+                                    <div class="invalid-feedback">Por favor selecciona la hora de fin del evento.</div>
+                                </div>
 
                                 <div class="mb-3">
                                     <label for="ubicacion" class="form-label">Ubicación *</label>

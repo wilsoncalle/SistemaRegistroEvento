@@ -133,25 +133,24 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                                 </div>
 
                                 <div class="row">
-                                    <div class="col-md-4 mb-3">
+                                    <div class="col-md-6 mb-3">
                                         <label for="fecha_evento" class="form-label">Fecha *</label>
                                         <input type="date" class="form-control" id="fecha_evento" name="fecha_evento" required>
                                         <div class="invalid-feedback">Por favor selecciona la fecha del evento.</div>
                                     </div>
 
-                                    <div class="col-md-4 mb-3">
+                                    <div class="col-md-6 mb-3">
                                         <label for="hora_inicio" class="form-label">Hora de Inicio *</label>
                                         <input type="time" class="form-control" id="hora_inicio" name="hora_inicio" required>
                                         <div class="invalid-feedback">Por favor selecciona la hora de inicio del evento.</div>
                                     </div>
-                                    <div class="col-md-4 mb-3">
-                                        <label for="hora_fin" class="form-label">Hora de Fin *</label>
-                                        <input type="time" class="form-control" id="hora_fin" name="hora_fin" required>
-                                    <div class="invalid-feedback">Por favor selecciona la hora de fin del evento.</div>
-                                </div>
                                 </div>
 
-                                
+                                <div class="col-md-6 mb-3">
+                                    <label for="hora_fin" class="form-label">Hora de Fin *</label>
+                                    <input type="time" class="form-control" id="hora_fin" name="hora_fin" required>
+                                    <div class="invalid-feedback">Por favor selecciona la hora de fin del evento.</div>
+                                </div>
 
                                 <div class="mb-3">
                                     <label for="ubicacion" class="form-label">Ubicación *</label>

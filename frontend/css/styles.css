@@ -1,213 +1,258 @@
-/* Paleta de Colores */
+/* General styles */
 :root {
-    --color-primario: #0056b3;
-    --color-secundario: #6c757d;
-    --color-exito: #28a745;
-    --color-peligro: #dc3545;
-    --color-fondo: #f8f9fa;
-    --color-texto: #212529;
-    --transition-speed: 0.3s;
+    --primary-color: #6366f1;
+    --secondary-color: #f8fafc;
+    --text-color: #1e293b;
+    --border-color: #e2e8f0;
+    --hover-color: #f1f5f9;
+    --accent-color: #8b5cf6;
+    --sidebar-bg: #ffffff;
+    --card-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+    --main-bg: #f8fafc;
 }
 
-/* Animaciones Base */
-@keyframes fadeIn {
-    from { opacity: 0; }
-    to { opacity: 1; }
+body {
+    font-family: 'Inter', 'Segoe UI', system-ui, sans-serif;
+    background-color: var(--secondary-color);
+    color: var(--text-color);
+    line-height: 1.5;
 }
 
-@keyframes slideIn {
-    from { transform: translateY(20px); opacity: 0; }
-    to { transform: translateY(0); opacity: 1; }
+/* Sidebar styles */
+.sidebar {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    z-index: 100;
+    padding: 1.5rem 0;
+    background-color: #845ef51a !important;
+    box-shadow: var(--card-shadow);
+    width: 250px;
+    transition: all 0.2s ease-in-out;
+    border-right: 1px solid var(--border-color);
+    will-change: transform;
+    backface-visibility: hidden;
+    transform: translateZ(0);
 }
 
-@keyframes pulse {
-    0% { transform: scale(1); }
-    50% { transform: scale(1.05); }
-    100% { transform: scale(1); }
+.sidebar .nav-link {
+    color: var(--text-color);
+    padding: 0.875rem 1.5rem;
+    margin: 0.25rem 1rem;
+    border-radius: 12px;
+    transition: all 0.15s ease-in-out;
+    display: flex;
+    align-items: center;
+    font-weight: 500;
+    background-color: transparent;
+    will-change: transform, background-color, color;
+    backface-visibility: hidden;
+    transform: translateZ(0);
 }
 
-/* Tipografía */
-body.sistema-eventos {
-    font-family: 'Roboto', sans-serif !important;
-    background-color: var(--color-fondo) !important;
-    color: var(--color-texto) !important;
-    animation: fadeIn 0.5s ease-out;
+.sidebar .nav-link i {
+    margin-right: 12px;
+    font-size: 1.25rem;
+    transition: color 0.15s ease-in-out;
+    will-change: color;
 }
 
-/* Encabezados */
-.sistema-eventos h1,
-.sistema-eventos h2,
-.sistema-eventos h3,
-.sistema-eventos h4,
-.sistema-eventos h5,
-.sistema-eventos h6 {
-    font-weight: 600 !important;
-    animation: slideIn 0.5s ease-out;
+.sidebar .nav-link:hover {
+    background-color: var(--hover-color);
+    color: var(--primary-color);
+    transform: translateX(4px);
 }
 
-/* Botones */
-.sistema-eventos .btn-primary {
-    background-color: var(--color-primario) !important;
-    border-color: var(--color-primario) !important;
-    border-radius: 6px !important;
-    padding: 0.5rem 1rem !important;
-    transition: all var(--transition-speed) ease !important;
-    position: relative !important;
-    overflow: hidden !important;
+.sidebar .nav-link.active {
+    background: linear-gradient(135deg, var(--primary-color), var(--accent-color));
+    color: white;
+    font-weight: 600;
+    box-shadow: 0 4px 6px -1px rgba(99, 102, 241, 0.2);
+    transform: translateX(4px);
 }
 
-.sistema-eventos .btn-primary:hover {
-    background-color: #004494 !important;
-    border-color: #004494 !important;
-    transform: translateY(-2px) !important;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1) !important;
+.sidebar .nav-link.active i {
+    color: white;
 }
 
-.sistema-eventos .btn-primary:active {
-    transform: translateY(0) !important;
+.sidebar-heading {
+    font-size: 0.875rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--text-color);
+    margin-bottom: 0.5rem;
 }
 
-.sistema-eventos .btn-outline-secondary {
-    border-radius: 6px !important;
+.sidebar hr {
+    border: none;
+    border-top: 1px solid var(--border-color);
+    margin: 1rem 0;
+    opacity: 0.5;
 }
 
-/* Cards */
-.sistema-eventos .card {
-    border: none !important;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05) !important;
-    border-radius: 8px !important;
-    transition: all var(--transition-speed) ease !important;
-    animation: slideIn 0.5s ease-out;
+/* Asegurar que ningún elemento dentro de la sidebar tenga fondo oscuro */
+.sidebar * {
+    background-color: transparent !important;
 }
 
-.sistema-eventos .card:hover {
-    transform: translateY(-5px) !important;
-    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1) !important;
+.sidebar .nav-link.active * {
+    background-color: transparent !important;
 }
 
-.sistema-eventos .card-header {
-    background-color: #fff !important;
-    border-bottom: 1px solid rgba(0, 0, 0, 0.05) !important;
+/* Main content styles */
+main {
+    margin-left: 250px;
+    padding: 2.5rem;
+    min-height: 100vh;
+    background-color: var(--main-bg);
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    will-change: transform;
+    backface-visibility: hidden;
+    transform: translateZ(0);
 }
 
-.sistema-eventos .stat-card {
-    background-color: #fff !important;
-    padding: 1.5rem !important;
-    text-align: center !important;
+.main-content {
+    max-width: 1400px;
+    margin: 0 auto;
+    width: 100%;
+    will-change: transform;
+    backface-visibility: hidden;
+    transform: translateZ(0);
 }
 
-.sistema-eventos .stat-value {
-    font-size: 2.5rem !important;
-    font-weight: bold !important;
-    color: var(--color-primario) !important;
+/* Card styles */
+.card {
+    border: none;
+    border-radius: 16px;
+    box-shadow: var(--card-shadow);
+    transition: all 0.2s ease-in-out;
+    background-color: white;
+    margin-bottom: 0;
+    overflow: hidden;
+    height: 100%;
+    will-change: transform, box-shadow;
+    backface-visibility: hidden;
+    transform: translateZ(0);
 }
 
-/* Formularios */
-.sistema-eventos .form-control {
-    border-radius: 6px !important;
-    border: 1px solid #ced4da !important;
-    transition: all var(--transition-speed) ease !important;
+.card-header {
+    background-color: transparent;
+    border-bottom: 1px solid var(--border-color);
+    padding: 1.25rem 1.5rem;
 }
 
-.sistema-eventos .form-control:focus {
-    box-shadow: 0 0 0 0.2rem rgba(0, 86, 179, 0.25) !important;
-    transform: scale(1.02) !important;
+.card-body {
+    padding: 1.5rem;
 }
 
-.sistema-eventos .form-label {
-    font-weight: 500 !important;
-    color: var(--color-texto) !important;
+.card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
 }
 
-/* Tablas */
-.sistema-eventos .table {
-    background-color: #fff !important;
-    border-radius: 8px !important;
-    overflow: hidden !important;
-    animation: fadeIn 0.5s ease-out;
+.stat-card {
+    background: linear-gradient(135deg, var(--primary-color) 0%, var(--accent-color) 100%);
+    color: white;
+    padding: 1.75rem;
 }
 
-.sistema-eventos .table thead th {
-    background-color: var(--color-primario) !important;
-    color: #fff !important;
-    border-color: var(--color-primario) !important;
+.stat-card .card-title {
+    font-size: 0.875rem;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    opacity: 0.9;
+    font-weight: 500;
 }
 
-.sistema-eventos .table-hover tbody tr {
-    transition: all var(--transition-speed) ease !important;
+.stat-card .stat-value {
+    font-size: 2.5rem;
+    font-weight: 700;
+    margin: 0.5rem 0;
 }
 
-.sistema-eventos .table-hover tbody tr:hover {
-    background-color: rgba(0, 86, 179, 0.05) !important;
-    transform: scale(1.01) !important;
+/* Navbar styles */
+.navbar {
+    background-color: white;
+    box-shadow: var(--card-shadow);
+    padding: 1rem 2rem;
 }
 
-/* Barra Lateral */
-.sistema-eventos .sidebar {
-    background-color: #343a40 !important;
-    color: #fff !important;
-    min-height: 100vh !important;
-    animation: slideIn 0.5s ease-out;
+.navbar-brand {
+    color: var(--primary-color);
+    font-weight: 700;
+    font-size: 1.5rem;
 }
 
-.sistema-eventos .sidebar .nav-link {
-    color: #adb5bd !important;
-    padding: 0.75rem 1rem !important;
-    border-radius: 6px !important;
-    margin: 0.25rem 0.5rem !important;
-    transition: all var(--transition-speed) ease !important;
+.navbar-nav .nav-link {
+    color: var(--text-color);
+    padding: 0.625rem 1rem;
+    border-radius: 12px;
+    transition: all 0.2s ease;
+    font-weight: 500;
 }
 
-.sistema-eventos .sidebar .nav-link:hover {
-    color: #fff !important;
-    background-color: rgba(255, 255, 255, 0.1) !important;
-    transform: translateX(5px) !important;
+.navbar-nav .nav-link:hover {
+    background-color: var(--hover-color);
+    color: var(--primary-color);
 }
 
-.sistema-eventos .sidebar .nav-link.active {
-    color: #fff !important;
-    background-color: rgba(255, 255, 255, 0.2) !important;
-}
-
-/* Badges */
-.sistema-eventos .badge {
-    font-size: 0.875rem !important;
-    padding: 0.5em 0.75em !important;
-    border-radius: 4px !important;
-    transition: all var(--transition-speed) ease !important;
-}
-
-.sistema-eventos .badge:hover {
-    animation: pulse 1s infinite !important;
-}
-
-/* Imágenes de Perfil */
-.sistema-eventos .img-fluid.rounded-circle {
-    border: 2px solid var(--color-primario) !important;
-    max-width: 150px !important;
-    transition: all var(--transition-speed) ease !important;
-}
-
-.sistema-eventos .img-fluid.rounded-circle:hover {
-    transform: scale(1.05) !important;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1) !important;
-}
-
-/* Efectos de Carga */
-.sistema-eventos .loading {
-    animation: pulse 1.5s infinite !important;
-}
-
-/* Responsive Adjustments */
+/* Responsive adjustments */
 @media (max-width: 768px) {
-    .sistema-eventos .stat-value {
-        font-size: 2rem !important;
+    .sidebar {
+        width: 100%;
+        position: relative;
+        height: auto;
     }
-    .sistema-eventos .sidebar {
-        position: fixed !important;
-        z-index: 1000 !important;
+
+    main {
+        margin-left: 0;
+        padding: 1rem;
     }
-    .sistema-eventos .card:hover {
-        transform: none !important;
-    }
+}
+
+/* Dashboard grid */
+.dashboard-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 2rem;
+    margin-top: 1rem;
+}
+
+/* Chart containers */
+.chart-container {
+    background-color: white;
+    border-radius: 16px;
+    padding: 1.75rem;
+    box-shadow: var(--card-shadow);
+    margin-bottom: 2rem;
+}
+
+/* Modern buttons */
+.btn-modern {
+    background: linear-gradient(135deg, var(--primary-color), var(--accent-color));
+    color: white;
+    border: none;
+    padding: 0.75rem 1.5rem;
+    border-radius: 12px;
+    transition: all 0.2s ease;
+    font-weight: 500;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+}
+
+.btn-modern:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 8px -1px rgba(0, 0, 0, 0.15);
+}
+
+/* Optimización de renderizado para los íconos */
+.bi {
+    display: inline-block;
+    vertical-align: -0.125em;
+    will-change: transform;
+    backface-visibility: hidden;
+    transform: translateZ(0);
 }

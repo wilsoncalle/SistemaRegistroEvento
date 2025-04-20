@@ -78,7 +78,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                   WHERE evento_id = ?";
         
         $stmt = mysqli_prepare($conn, $query);
-        mysqli_stmt_bind_param($stmt, 'ssssssisii', 
+        mysqli_stmt_bind_param($stmt, 'ssssssissi', 
             $titulo, $descripcion, $fecha_evento, $hora_inicio, 
             $hora_fin, $ubicacion, $max_participantes, $categoria_id, $imagen, $evento_id
         );
